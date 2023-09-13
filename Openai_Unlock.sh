@@ -839,7 +839,6 @@ function RunScript() {
     if [[ -n "${num}" ]]; then
         if [[ "$num" -eq 1 ]]; then
             clear
-            ScriptTitle
             CheckV4
             if [[ "$isv4" -eq 1 ]]; then
                 Global_UnlockTest 4
@@ -1041,7 +1040,6 @@ function RunScript() {
             OA_UnlockTest 6
             KR_UnlockTest 6
         fi
-        Goodbye
     fi
 }
 wait
