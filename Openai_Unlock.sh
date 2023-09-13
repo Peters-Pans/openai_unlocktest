@@ -681,15 +681,15 @@ function Sport_UnlockTest() {
 function Openai_UnlockTest() {
     local tmpresult=$(curl $curlArgs -${1} --user-agent "${UA_Browser}" -SsLI --max-time 10 "https://chat.openai.com" 2>&1)
     if [[ "$tmpresult" == "curl"* ]]; then
-        echo -n -e "\r Openai:\t\t\t\tFailed (Network Connection)\n"
+        echo -n -e "Network Connection)"
         return
     fi
     local result1=$(echo "$tmpresult" | grep 'location' )
     if [ ! -n "$result1" ]; then
-    	echo -n -e "\r Openai:No\n"
+    	echo -n -e "不支持openai"
     else
     	local region1=$(curl $curlArgs -${1} --user-agent "${UA_Browser}" -SsL --max-time 10 "https://chat.openai.com/cdn-cgi/trace" 2>&1 | grep "loc=" | awk -F= '{print $2}')
-        echo -n -e "\r Openai:Yes (Region: ${region1})\n"
+        echo -n -e "支持Region: ${region1}openai"
     fi
 }
 
@@ -769,6 +769,7 @@ function Goodbye() {
         echo -e "${Font_Yellow}检测脚本当天运行次数: ${TodayRunTimes}; 共计运行次数: ${TotalRunTimes} ${Font_Suffix}"
     fi
 }
+clear
 
 function ScriptTitle() {
     if [[ "$language" == "e" ]]; then
@@ -926,7 +927,6 @@ function RunScript() {
             Goodbye
 
         elif [[ "$num" -eq 10 ]]; then
-            clear
             CheckV4
             if [[ "$isv4" -eq 1 ]]; then
                 Openai_UnlockTest 4
