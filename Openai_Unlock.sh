@@ -779,27 +779,18 @@ clear
 function ScriptTitle() {
     if [[ "$language" == "e" ]]; then
         echo -e " [Stream Platform & Game Region Restriction Test]"
-        echo ""
-        echo ""
-        echo -e " ** Test Starts At: $(date)"
-        echo ""
+        echo -e " Test Starts At: $(date)"
     else
         echo -e " [流媒体平台及游戏区域限制测试]"
-        echo ""
-        echo -e " ** 测试时间: $(date '+%Y-%m-%d %H:%M:%S %Z')"
-        echo ""
+        echo -e " 测试时间: $(date '+%Y-%m-%d %H:%M:%S %Z')"
     fi
 }
 ScriptTitle
 
 function Start() {
    if [[ "$language" == "e" ]]; then
-        echo -e "${Font_Blue}Please Select Test Region or Press ENTER to Test All Regions${Font_Suffix}"
-        # 省略其他菜单选项
         num=10  # 在这里将num设置为10
     else
-        echo -e "${Font_Blue}请选择检测项目，直接按回车将进行全区域检测${Font_Suffix}"
-        # 省略其他菜单选项
         num=10  # 在这里将num设置为10
     fi
 }
