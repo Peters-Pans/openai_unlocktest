@@ -681,15 +681,15 @@ function Sport_UnlockTest() {
 function Openai_UnlockTest() {
     local tmpresult=$(curl $curlArgs -${1} --user-agent "${UA_Browser}" -SsLI --max-time 10 "https://chat.openai.com" 2>&1)
     if [[ "$tmpresult" == "curl"* ]]; then
-        echo -n -e "\r Openai:\t\t\t\t${Font_Red}Failed (Network Connection)${Font_Suffix}\n"
+        echo -n -e "\r Openai:\t\t\t\tFailed (Network Connection)\n"
         return
     fi
     local result1=$(echo "$tmpresult" | grep 'location' )
     if [ ! -n "$result1" ]; then
-    	echo -n -e "\r Openai:\t\t\t\t${Font_Red}No${Font_Suffix}\n"
+    	echo -n -e "\r Openai:\t\t\t\tNo\n"
     else
     	local region1=$(curl $curlArgs -${1} --user-agent "${UA_Browser}" -SsL --max-time 10 "https://chat.openai.com/cdn-cgi/trace" 2>&1 | grep "loc=" | awk -F= '{print $2}')
-        echo -n -e "\r Openai:\t\t\t\t${Font_Green}Yes (Region: ${region1})${Font_Suffix}\n"
+        echo -n -e "\r Openai:\t\t\t\tYes (Region: ${region1})\n"
     fi
 }
 
@@ -704,7 +704,7 @@ function CheckV4() {
             if [ -n  "$check4"  ]; then
                 isv4=1
             else
-                echo -e "No IPv4 Connectivity Found, Abort IPv4 Testing..."
+                echo -e "No IPv4"
                 isv4=0
             fi
         fi
@@ -718,7 +718,7 @@ function CheckV4() {
             if [ -n  "$check4"  ]; then
                 isv4=1
             else
-                echo -e "当前网络不支持IPv4,跳过..."
+                echo -e "未配置IPv4"
                 isv4=0
             fi
         fi
@@ -738,7 +738,7 @@ function CheckV6() {
                 echo -e "Your IPv6 Network Provider: ${local_isp6} (${local_ipv6_asterisk})"
                 isv6=1
             else
-                echo -e "No IPv6 Connectivity Found, Abort IPv6 Testing..."
+                echo -e "No IPv6"
                 isv6=0
             fi
         fi
@@ -754,7 +754,7 @@ function CheckV6() {
                 echo -e "您的IPv6网络为: ${local_isp6} (${local_ipv6_asterisk})"
                 isv6=1
             else
-                echo -e "当前主机不支持IPv6,跳过..."
+                echo -e "未配置IPv6"
                 isv6=0
             fi
         fi
