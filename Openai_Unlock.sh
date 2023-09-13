@@ -778,10 +778,8 @@ clear
 
 function ScriptTitle() {
     if [[ "$language" == "e" ]]; then
-        #echo -e " [Stream Platform & Game Region Restriction Test]"
         echo -e " Test Starts At: $(date)"
     else
-        #echo -e " [流媒体平台及游戏区域限制测试]"
         echo -e " 测试时间: $(date '+%Y-%m-%d %H:%M:%S %Z')"
     fi
 }
