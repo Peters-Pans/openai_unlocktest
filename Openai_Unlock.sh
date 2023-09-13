@@ -704,7 +704,6 @@ function CheckV4() {
             if [ -n  "$check4"  ]; then
                 isv4=1
             else
-                echo -e "No IPv4"
                 isv4=0
             fi
         fi
@@ -714,11 +713,10 @@ function CheckV4() {
             echo -e "用户选择只检测IPv6结果，跳过IPv4检测..."
         else
             check4=$(curl $curlArgs cloudflare.com/cdn-cgi/trace -4 -s 2>&1)
-            echo -e "IPv4网络为: ${local_isp4} (${local_ipv4_asterisk})"
+            echo -e "IPv4测试"
             if [ -n  "$check4"  ]; then
                 isv4=1
             else
-                echo -e "未配置IPv4"
                 isv4=0
             fi
         fi
@@ -738,7 +736,6 @@ function CheckV6() {
                 echo -e "Your IPv6 Network Provider: ${local_isp6} (${local_ipv6_asterisk})"
                 isv6=1
             else
-                echo -e "No IPv6"
                 isv6=0
             fi
         fi
@@ -751,10 +748,9 @@ function CheckV6() {
         else
             check6=$(curl $curlArgs cloudflare.com/cdn-cgi/trace -6 -s 2>&1)
             if [ -n  "$check6"  ]; then
-                echo -e "IPv6网络为: ${local_isp6} (${local_ipv6_asterisk})"
+                echo -e "IPv6测试"
                 isv6=1
             else
-                echo -e "未配置IPv6"
                 isv6=0
             fi
         fi
