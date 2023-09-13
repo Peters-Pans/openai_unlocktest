@@ -821,9 +821,150 @@ function ScriptTitle() {
 }
 ScriptTitle
 
+function Start() {
+        num=10
+}
+Start
 
 function RunScript() {
 
+    if [[ -n "${num}" ]]; then
+        if [[ "$num" -eq 1 ]]; then
+            clear
+            ScriptTitle
+            CheckV4
+            if [[ "$isv4" -eq 1 ]]; then
+                Global_UnlockTest 4
+                TW_UnlockTest 4
+            fi
+            CheckV6
+            if [[ "$isv6" -eq 1 ]]; then
+                Global_UnlockTest 6
+                TW_UnlockTest 6
+            fi
+            Goodbye
+
+        elif [[ "$num" -eq 2 ]]; then
+            clear
+            ScriptTitle
+            CheckV4
+            if [[ "$isv4" -eq 1 ]]; then
+                Global_UnlockTest 4
+                HK_UnlockTest 4
+            fi
+            CheckV6
+            if [[ "$isv6" -eq 1 ]]; then
+                Global_UnlockTest 6
+                HK_UnlockTest 6
+            fi
+            Goodbye
+
+        elif [[ "$num" -eq 3 ]]; then
+            clear
+            ScriptTitle
+            CheckV4
+            if [[ "$isv4" -eq 1 ]]; then
+                Global_UnlockTest 4
+                JP_UnlockTest 4
+            fi
+            CheckV6
+            if [[ "$isv6" -eq 1 ]]; then
+                Global_UnlockTest 6
+                JP_UnlockTest 6
+            fi
+            Goodbye
+
+        elif [[ "$num" -eq 4 ]]; then
+            clear
+            ScriptTitle
+            CheckV4
+            if [[ "$isv4" -eq 1 ]]; then
+                Global_UnlockTest 4
+                NA_UnlockTest 4
+            fi
+            CheckV6
+            if [[ "$isv6" -eq 1 ]]; then
+                Global_UnlockTest 6
+                NA_UnlockTest 6
+            fi
+            Goodbye
+
+        elif [[ "$num" -eq 5 ]]; then
+            clear
+            ScriptTitle
+            CheckV4
+            if [[ "$isv4" -eq 1 ]]; then
+                Global_UnlockTest 4
+                SA_UnlockTest 4
+            fi
+            CheckV6
+            if [[ "$isv6" -eq 1 ]]; then
+                Global_UnlockTest 6
+                SA_UnlockTest 6
+            fi
+            Goodbye
+
+        elif [[ "$num" -eq 6 ]]; then
+            clear
+            ScriptTitle
+            CheckV4
+            if [[ "$isv4" -eq 1 ]]; then
+                Global_UnlockTest 4
+                EU_UnlockTest 4
+            fi
+            CheckV6
+            if [[ "$isv6" -eq 1 ]]; then
+                Global_UnlockTest 6
+                EU_UnlockTest 6
+            fi
+            Goodbye
+
+        elif [[ "$num" -eq 7 ]]; then
+            clear
+            ScriptTitle
+            CheckV4
+            if [[ "$isv4" -eq 1 ]]; then
+                Global_UnlockTest 4
+                OA_UnlockTest 4
+            fi
+            CheckV6
+            if [[ "$isv6" -eq 1 ]]; then
+                Global_UnlockTest 6
+                OA_UnlockTest 6
+            fi
+            Goodbye
+
+        elif [[ "$num" -eq 8 ]]; then
+            clear
+            ScriptTitle
+            CheckV4
+            if [[ "$isv4" -eq 1 ]]; then
+                Global_UnlockTest 4
+                KR_UnlockTest 4
+            fi
+            CheckV6
+            if [[ "$isv6" -eq 1 ]]; then
+                Global_UnlockTest 6
+                KR_UnlockTest 6
+            fi
+            Goodbye
+
+        elif [[ "$num" -eq 9 ]]; then
+            clear
+            ScriptTitle
+            CheckV4
+            if [[ "$isv4" -eq 1 ]]; then
+                Global_UnlockTest 4
+                SEA_UnlockTest 4
+            fi
+            CheckV6
+            if [[ "$isv6" -eq 1 ]]; then
+                Global_UnlockTest 6
+                SEA_UnlockTest 6
+            fi
+            Goodbye
+
+        elif [[ "$num" -eq 10 ]]; then
             clear
             ScriptTitle
             CheckV4
@@ -836,6 +977,67 @@ function RunScript() {
             fi
             Goodbye
 
+
+        elif [[ "$num" -eq 99 ]]; then
+            clear
+            ScriptTitle
+            CheckV4
+            if [[ "$isv4" -eq 1 ]]; then
+                Sport_UnlockTest 4
+            fi
+            CheckV6
+            if [[ "$isv6" -eq 1 ]]; then
+                Sport_UnlockTest 6
+            fi
+            Goodbye
+
+        elif [[ "$num" -eq 0 ]]; then
+            clear
+            ScriptTitle
+            CheckV4
+            if [[ "$isv4" -eq 1 ]]; then
+                Global_UnlockTest 4
+            fi
+            CheckV6
+            if [[ "$isv6" -eq 1 ]]; then
+                Global_UnlockTest 6
+            fi
+            Goodbye
+
+        else
+            echo -e "${Font_Red}请重新执行脚本并输入正确号码${Font_Suffix}"
+            echo -e "${Font_Red}Please Re-run the Script with Correct Number Input${Font_Suffix}"
+            return
+        fi
+    else
+        clear
+        ScriptTitle
+        CheckV4
+        if [[ "$isv4" -eq 1 ]]; then
+            Global_UnlockTest 4
+            TW_UnlockTest 4
+            HK_UnlockTest 4
+            JP_UnlockTest 4
+            NA_UnlockTest 4
+            SA_UnlockTest 4
+            EU_UnlockTest 4
+            OA_UnlockTest 4
+            KR_UnlockTest 4
+        fi
+        CheckV6
+        if [[ "$isv6" -eq 1 ]]; then
+            Global_UnlockTest 6
+            TW_UnlockTest 6
+            HK_UnlockTest 6
+            JP_UnlockTest 6
+            NA_UnlockTest 6
+            SA_UnlockTest 6
+            EU_UnlockTest 6
+            OA_UnlockTest 6
+            KR_UnlockTest 6
+        fi
+        Goodbye
+    fi
 }
 wait
 RunScript
