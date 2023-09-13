@@ -27,4 +27,4 @@ function Openai_UnlockTest() {
     if [[ "$isv6" -eq 1 ]]; then
         Openai_UnlockTest 6
     fi
-        oodbye
+    Goodbye
