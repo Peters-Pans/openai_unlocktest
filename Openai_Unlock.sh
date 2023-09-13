@@ -822,7 +822,15 @@ function ScriptTitle() {
 ScriptTitle
 
 function Start() {
-    num = 10
+   if [[ "$language" == "e" ]]; then
+        echo -e "${Font_Blue}Please Select Test Region or Press ENTER to Test All Regions${Font_Suffix}"
+        # 省略其他菜单选项
+        num=10  # 在这里将num设置为10
+    else
+        echo -e "${Font_Blue}请选择检测项目，直接按回车将进行全区域检测${Font_Suffix}"
+        # 省略其他菜单选项
+        num=10  # 在这里将num设置为10
+    fi
 }
 Start
 
