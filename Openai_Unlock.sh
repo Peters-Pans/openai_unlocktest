@@ -697,28 +697,28 @@ function CheckV4() {
     if [[ "$language" == "e" ]]; then
         if [[ "$NetworkType" == "6" ]]; then
             isv4=0
-            echo -e "${Font_SkyBlue}User Choose to Test Only IPv6 Results, Skipping IPv4 Testing...${Font_Suffix}"
+            echo -e "User Choose to Test Only IPv6 Results, Skipping IPv4 Testing..."
         else
             check4=$(curl $curlArgs cloudflare.com/cdn-cgi/trace -4 -s 2>&1)
-            echo -e " ${Font_SkyBlue}** Your IPv4 Network Provider: ${local_isp4} (${local_ipv4_asterisk})${Font_Suffix} "
+            echo -e "Your IPv4 Network Provider: ${local_isp4} (${local_ipv4_asterisk}) "
             if [ -n  "$check4"  ]; then
                 isv4=1
             else
-                echo -e "${Font_SkyBlue}No IPv4 Connectivity Found, Abort IPv4 Testing...${Font_Suffix}"
+                echo -e "No IPv4 Connectivity Found, Abort IPv4 Testing..."
                 isv4=0
             fi
         fi
     else
         if [[ "$NetworkType" == "6" ]]; then
             isv4=0
-            echo -e "${Font_SkyBlue}用户选择只检测IPv6结果，跳过IPv4检测...${Font_Suffix}"
+            echo -e "用户选择只检测IPv6结果，跳过IPv4检测..."
         else
             check4=$(curl $curlArgs cloudflare.com/cdn-cgi/trace -4 -s 2>&1)
-            echo -e " ${Font_SkyBlue}** 您的IPv4网络为: ${local_isp4} (${local_ipv4_asterisk})${Font_Suffix} "
+            echo -e "您的IPv4网络为: ${local_isp4} (${local_ipv4_asterisk})"
             if [ -n  "$check4"  ]; then
                 isv4=1
             else
-                echo -e "${Font_SkyBlue}当前网络不支持IPv4,跳过...${Font_Suffix}"
+                echo -e "当前网络不支持IPv4,跳过..."
                 isv4=0
             fi
         fi
@@ -730,15 +730,15 @@ function CheckV6() {
         if [[ "$NetworkType" == "4" ]]; then
             isv6=0
             if [ -z "$usePROXY" ]; then
-                echo -e "${Font_SkyBlue}User Choose to Test Only IPv4 Results, Skipping IPv6 Testing...${Font_Suffix}"
+                echo -e "User Choose to Test Only IPv4 Results, Skipping IPv6 Testing..."
             fi
         else
             check6=$(curl $curlArgs cloudflare.com/cdn-cgi/trace -6 -s 2>&1)
             if [ -n  "$check6"  ]; then
-                echo -e " ${Font_SkyBlue}** Your IPv6 Network Provider: ${local_isp6} (${local_ipv6_asterisk})${Font_Suffix} "
+                echo -e "Your IPv6 Network Provider: ${local_isp6} (${local_ipv6_asterisk})"
                 isv6=1
             else
-                echo -e "${Font_SkyBlue}No IPv6 Connectivity Found, Abort IPv6 Testing...${Font_Suffix}"
+                echo -e "No IPv6 Connectivity Found, Abort IPv6 Testing..."
                 isv6=0
             fi
         fi
@@ -746,15 +746,15 @@ function CheckV6() {
         if [[ "$NetworkType" == "4" ]]; then
             isv6=0
             if [ -z "$usePROXY" ]; then
-                echo -e "${Font_SkyBlue}用户选择只检测IPv4结果，跳过IPv6检测...${Font_Suffix}"
+                echo -e "用户选择只检测IPv4结果，跳过IPv6检测..."
             fi
         else
             check6=$(curl $curlArgs cloudflare.com/cdn-cgi/trace -6 -s 2>&1)
             if [ -n  "$check6"  ]; then
-                echo -e " ${Font_SkyBlue}** 您的IPv6网络为: ${local_isp6} (${local_ipv6_asterisk})${Font_Suffix} "
+                echo -e "您的IPv6网络为: ${local_isp6} (${local_ipv6_asterisk})"
                 isv6=1
             else
-                echo -e "${Font_SkyBlue}当前主机不支持IPv6,跳过...${Font_Suffix}"
+                echo -e "当前主机不支持IPv6,跳过..."
                 isv6=0
             fi
         fi
