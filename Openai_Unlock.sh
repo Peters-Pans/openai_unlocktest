@@ -974,7 +974,6 @@ function RunScript() {
 
         elif [[ "$num" -eq 10 ]]; then
             clear
-            ScriptTitle
             CheckV4
             if [[ "$isv4" -eq 1 ]]; then
                 Openai_UnlockTest 4
@@ -983,8 +982,6 @@ function RunScript() {
             if [[ "$isv6" -eq 1 ]]; then
                 Openai_UnlockTest 6
             fi
-            Goodbye
-
 
         elif [[ "$num" -eq 99 ]]; then
             clear
