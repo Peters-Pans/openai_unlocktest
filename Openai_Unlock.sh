@@ -681,7 +681,7 @@ function Sport_UnlockTest() {
 function Openai_UnlockTest() {
     local tmpresult=$(curl $curlArgs -${1} --user-agent "${UA_Browser}" -SsLI --max-time 10 "https://chat.openai.com" 2>&1)
     if [[ "$tmpresult" == "curl"* ]]; then
-        echo -n -e "Network Connection)"
+        echo -n -e "Network Connection"
         return
     fi
     local result1=$(echo "$tmpresult" | grep 'location' )
@@ -689,7 +689,7 @@ function Openai_UnlockTest() {
     	echo -n -e "不支持Openai\n"
     else
     	local region1=$(curl $curlArgs -${1} --user-agent "${UA_Browser}" -SsL --max-time 10 "https://chat.openai.com/cdn-cgi/trace" 2>&1 | grep "loc=" | awk -F= '{print $2}')
-        echo -n -e "支持 ${region1} Openai使用\n"
+        echo -n -e "支持Openai使用 ${region1}\n"
     fi
 }
 
@@ -774,8 +774,6 @@ clear
 function ScriptTitle() {
     if [[ "$language" == "e" ]]; then
         echo -e " Test Starts At: $(date)"
-    else
-        echo -e " 测试时间: $(date '+%Y-%m-%d %H:%M:%S %Z')"
     fi
 }
 ScriptTitle
