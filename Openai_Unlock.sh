@@ -741,9 +741,7 @@ function CheckV6() {
                 echo -e "${Font_SkyBlue}No IPv6 Connectivity Found, Abort IPv6 Testing...${Font_Suffix}"
                 isv6=0
             fi
-            echo -e ""
         fi
-
     else
         if [[ "$NetworkType" == "4" ]]; then
             isv6=0
@@ -759,7 +757,6 @@ function CheckV6() {
                 echo -e "${Font_SkyBlue}当前主机不支持IPv6,跳过...${Font_Suffix}"
                 isv6=0
             fi
-            echo -e ""
         fi
     fi
 }
