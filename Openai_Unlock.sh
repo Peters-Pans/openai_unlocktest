@@ -686,10 +686,10 @@ function Openai_UnlockTest() {
     fi
     local result1=$(echo "$tmpresult" | grep 'location' )
     if [ ! -n "$result1" ]; then
-    	echo -e "不支持Openai\n"
+    	echo -n -e "不支持Openai\n"
     else
     	local region1=$(curl $curlArgs -${1} --user-agent "${UA_Browser}" -SsL --max-time 10 "https://chat.openai.com/cdn-cgi/trace" 2>&1 | grep "loc=" | awk -F= '{print $2}')
-        echo -e "支持 ${region1} Openai使用\n"
+        echo -n -e "支持 ${region1} Openai使用\n"
     fi
 }
 
