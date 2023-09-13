@@ -714,7 +714,7 @@ function CheckV4() {
             echo -e "用户选择只检测IPv6结果，跳过IPv4检测..."
         else
             check4=$(curl $curlArgs cloudflare.com/cdn-cgi/trace -4 -s 2>&1)
-            echo -e "您的IPv4网络为: ${local_isp4} (${local_ipv4_asterisk})"
+            echo -e "IPv4网络为: ${local_isp4} (${local_ipv4_asterisk})"
             if [ -n  "$check4"  ]; then
                 isv4=1
             else
@@ -751,7 +751,7 @@ function CheckV6() {
         else
             check6=$(curl $curlArgs cloudflare.com/cdn-cgi/trace -6 -s 2>&1)
             if [ -n  "$check6"  ]; then
-                echo -e "您的IPv6网络为: ${local_isp6} (${local_ipv6_asterisk})"
+                echo -e "IPv6网络为: ${local_isp6} (${local_ipv6_asterisk})"
                 isv6=1
             else
                 echo -e "未配置IPv6"
@@ -778,10 +778,10 @@ clear
 
 function ScriptTitle() {
     if [[ "$language" == "e" ]]; then
-        echo -e " [Stream Platform & Game Region Restriction Test]"
+        #echo -e " [Stream Platform & Game Region Restriction Test]"
         echo -e " Test Starts At: $(date)"
     else
-        echo -e " [流媒体平台及游戏区域限制测试]"
+        #echo -e " [流媒体平台及游戏区域限制测试]"
         echo -e " 测试时间: $(date '+%Y-%m-%d %H:%M:%S %Z')"
     fi
 }
