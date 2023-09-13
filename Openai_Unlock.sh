@@ -707,8 +707,6 @@ function CheckV4() {
                 echo -e "${Font_SkyBlue}No IPv4 Connectivity Found, Abort IPv4 Testing...${Font_Suffix}"
                 isv4=0
             fi
-
-            echo ""
         fi
     else
         if [[ "$NetworkType" == "6" ]]; then
@@ -723,8 +721,6 @@ function CheckV4() {
                 echo -e "${Font_SkyBlue}当前网络不支持IPv4,跳过...${Font_Suffix}"
                 isv4=0
             fi
-
-            echo ""
         fi
     fi
 }
