@@ -686,10 +686,10 @@ function Openai_UnlockTest() {
     fi
     local result1=$(echo "$tmpresult" | grep 'location' )
     if [ ! -n "$result1" ]; then
-    	echo -n -e "\r Openai:\t\t\t\tNo\n"
+    	echo -n -e "\r Openai:No\n"
     else
     	local region1=$(curl $curlArgs -${1} --user-agent "${UA_Browser}" -SsL --max-time 10 "https://chat.openai.com/cdn-cgi/trace" 2>&1 | grep "loc=" | awk -F= '{print $2}')
-        echo -n -e "\r Openai:\t\t\t\tYes (Region: ${region1})\n"
+        echo -n -e "\r Openai:Yes (Region: ${region1})\n"
     fi
 }
 
@@ -713,7 +713,7 @@ function CheckV4() {
             echo -e "用户选择只检测IPv6结果，跳过IPv4检测..."
         else
             check4=$(curl $curlArgs cloudflare.com/cdn-cgi/trace -4 -s 2>&1)
-            echo -e "IPv4测试"
+            echo -e "IPv4解锁测试"
             if [ -n  "$check4"  ]; then
                 isv4=1
             else
@@ -748,7 +748,7 @@ function CheckV6() {
         else
             check6=$(curl $curlArgs cloudflare.com/cdn-cgi/trace -6 -s 2>&1)
             if [ -n  "$check6"  ]; then
-                echo -e "IPv6测试"
+                echo -e "IPv6解锁测试"
                 isv6=1
             else
                 isv6=0
@@ -769,8 +769,6 @@ function Goodbye() {
         echo -e "${Font_Yellow}检测脚本当天运行次数: ${TodayRunTimes}; 共计运行次数: ${TotalRunTimes} ${Font_Suffix}"
     fi
 }
-
-clear
 
 function ScriptTitle() {
     if [[ "$language" == "e" ]]; then
